@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @vite(['resources/js/app.js'])
 <style>
+
 .profilepic {
   border-radius: 50%;
   max-width: 80px;
@@ -21,14 +22,13 @@
   width: 50%;
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  max-height: 500px;
-  margin: auto;
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-
+.back {
+  max-width: 30px;
+  max-height: 30px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .title {
@@ -59,6 +59,35 @@ button:hover, a:hover {
   opacity: 0.7;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
 
 
 
@@ -68,10 +97,12 @@ button:hover, a:hover {
 <body>
 
 
-
-<div style="padding-left:16px">
+<ul>
+  <li><a href="{{ url('/') }}">&laquo;Go back to Home</a></li>
+</ul>
+<div style="padding-left:16px;padding-right:16px">
     @foreach($decoded as $channel)
-        <div class="card">
+        <div>
             <img src="{{ $channel->profile_picture }}" class="profilepic"><br>
             <h1>{{ $channel->name }}<br></h1>
             <div style="margin: 24px 0;">
@@ -85,6 +116,8 @@ button:hover, a:hover {
     @endforeach
 
 </div>
+
+
 
 </body>
 </html>

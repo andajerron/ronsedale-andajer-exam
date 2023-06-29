@@ -49,11 +49,44 @@ a {
 button:hover, a:hover {
   opacity: 0.7;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
 </style>
 </head>
 <body>
 
-<div style="padding-left:16px">
+
+<ul>
+  <li><a href="{{ url('/') }}">&laquo;Go back to Home</a></li>
+</ul>
+<div style="padding-left:16px;padding-right:16px;padding-top:20px">
     @foreach($videos as $video)
         <div class="card">
         <img src="{{ $video->thumbnail }}"><br>
@@ -68,7 +101,6 @@ button:hover, a:hover {
         <br><br>
 
     @endforeach
-  <a href="{{ url('/') }}" class="btn btn-xs btn-default">Go back to Home</a>
 </div>
 
 
